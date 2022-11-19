@@ -1,0 +1,13 @@
+﻿
+@model  IEnumerable<Blog_MVC_Application.Models.Blog>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var i in Model)
+{
+    <p>@i.Title</p>
+}
+
