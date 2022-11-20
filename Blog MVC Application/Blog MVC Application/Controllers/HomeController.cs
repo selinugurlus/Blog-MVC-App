@@ -13,7 +13,21 @@ namespace Blog_MVC_Application.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(context.Blogs.ToList());
+            var blogs = context.Blogs
+                .Select(i=>new BlogModel()
+                {
+                    Id=i.Id,
+                    Title=i.Title.Length>100?i.Title.Substring(0,100)+"...":i.Title,
+                    Statement=i.Statement,
+                    UploadDate=i.UploadDate,
+                    Home=i.Home,
+                    Confirm=i.Confirm,
+                    Image=i.Image
+
+                })
+                .Where(i => i.Confirm == true && i.Home == true);
+
+            return View(blogs.ToList());
         }
     }
 }
