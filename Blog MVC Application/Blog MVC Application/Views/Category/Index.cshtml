@@ -12,6 +12,17 @@
 </p>
 <hr />
 
+@if(TempData["Category"] != null)
+{
+    var category = (Blog_MVC_Application.Models.Category)TempData["Category"];
+
+    <div class="alert alert-success">
+        <span class="glyphicon glyphicon-ok"></span>
+        <b>@category.CategoryName</b> Saved.
+    </div>
+
+}
+
 <table class="table table-bordered  table-hover table-striped">
     <tr>
         <th>
