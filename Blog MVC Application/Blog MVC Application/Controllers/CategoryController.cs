@@ -56,7 +56,7 @@ namespace Blog_MVC_Application.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CategoryName")] Category category)
+        public ActionResult Create([Bind(Include = "CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
